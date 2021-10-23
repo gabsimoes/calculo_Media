@@ -1,0 +1,38 @@
+
+<div class="card" style="width: 37rem;">
+  <img [src]="foto" class="card-img-justify" alt="...">
+  <div class="card-body">
+
+  <h2 class="card-title" style="text-align: center;">{{ titulo | uppercase }}</h2>
+</div>
+
+    <div class="card" style="width: 35,5rem;">
+      <div class="card-header-justify">
+      </div>
+
+      <h2 class="badge badge-danger" style="width: 35,5rem" style="font-size: 1rem;">RMA: {{ codigoRMA }}
+        <br>
+      Aluno: {{ nome }}
+      <br>
+      Data: {{ dataCalendario | date: 'longDate' }}
+      </h2>
+
+      <ul class="list-group list-group-horizontal" style="width: 35,5rem">
+        <li class="list-group-item" style="width: 35,5rem" style="text-align: center;" style="margin-left: 4rem;"><strong>Nota 1: </strong>{{ nota1 }}</li>
+        <li class="list-group-item" style="width: 35,5rem" style="text-align: center;"><strong>Nota 2: </strong>{{ nota2 }}</li>
+        <li class="list-group-item" style="width: 35,5rem" style="text-align: center;"><strong>Nota 3: </strong>{{ nota3 }}</li>
+        <li class="list-group-item" style="width: 35,5rem" style="text-align: center;"><strong>Nota 4: </strong>{{ nota4 }}</li>
+      </ul>
+      <a href="#" class="badge badge-primary" style="width: 35,5rem;" style="font-size: 1rem;">Média: {{ media }}</a>
+    </div>
+    </div>
+
+  <!--início do IF/ELSE-->
+  <span *ngIf="media >= 7 ; else elseBlock" class="badge badge-success">Aprovada!</span>
+
+  <ng-template #elseBlock>
+      <span class="badge badge-danger">Reprovada!</span>
+  </ng-template>
+<!--fim do IF-->
+
+
